@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment, useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import landingScreen from './screens/landingScreen';
+import rewardScreen from './screens/rewardScreen';
+import voteScreen from './screens/voteScreen';
+
+export const ThemeContext = React.createContext({});
+
+function App({ children }) {
+	const [ voteProperty, setVoteProperty ] = useState({
+		email: 'adi@jha.com',
+		phone: '7821915962'
+	});
+
+	return (
+		// <div className='App'>
+		// 	<header className='App-header' />
+		// </div>
+		<Fragment>
+			<ThemeContext.Provider value={{ voteProperty, setVoteProperty }}>
+				<button
+					onClick={() => {
+						console.log(voteProperty);
+					}}
+				>
+					Show State
+				</button>
+				<Router>
+					<Route exact path='/' component={landingScreen} />
+					<Route exact path='/reward' component={rewardScreen} />
+					<Route exact path='/vote' component={voteScreen} />
+				</Router>
+			</ThemeContext.Provider>
+		</Fragment>
+	);
 }
 
 export default App;
