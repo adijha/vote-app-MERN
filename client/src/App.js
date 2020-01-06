@@ -9,15 +9,9 @@ import voteScreen from './screens/voteScreen';
 export const ThemeContext = React.createContext({});
 
 function App({ children }) {
-	const [ voteProperty, setVoteProperty ] = useState({
-		email: 'adi@jha.com',
-		phone: '7821915962'
-	});
+	const [ voteProperty, setVoteProperty ] = useState('');
 
 	return (
-		// <div className='App'>
-		// 	<header className='App-header' />
-		// </div>
 		<Fragment>
 			<ThemeContext.Provider value={{ voteProperty, setVoteProperty }}>
 				<button

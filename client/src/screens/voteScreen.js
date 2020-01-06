@@ -20,7 +20,7 @@ export default function VoteScreen() {
 						/>
 
 						<div className='desc'>sky</div>
-						<LikeDislike />
+						<LikeDislike desc='sky' />
 					</div>
 					<div className='gallery'>
 						<img
@@ -31,6 +31,7 @@ export default function VoteScreen() {
 						/>
 
 						<div className='desc'>diwali</div>
+						<LikeDislike desc='diwali' />
 					</div>
 					<div className='gallery'>
 						<img

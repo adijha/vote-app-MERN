@@ -1,18 +1,48 @@
-const { google } = require('googleapis');
+require('dotenv').config();
+const express = require('express');
+const Vote = require('./models/Vote');
+const connectDB = require('./connectDB');
+connectDB();
 
-const SCOPES = [ 'https://www.googleapis.com/auth/spreadsheets' ];
+const app = express();
+app.use(express.json());
 
-const sheets = google.sheets({
-	version,
-	auth
+app.post('/', async (req, res) => {
+	try {
+		const mila = await Vote.findOne({ image: req.body.image });
+
+		if (!mila) {
+			const vote = new Vote({
+				image: req.body.image,
+				likes: req.body.like,
+				disLikes: req.body.disLike,
+				comments: req.body.comment
+			});
+
+			vote.save();
+			console.log('!mila');
+		} else {
+			let updated = await Vote.updateOne(
+				{
+					image: req.body.image
+				},
+				{
+					$set: {
+						likes: req.body.like,
+						disLikes: req.body.disLike,
+						comments: req.body.comment
+					}
+				}
+			);
+			console.log('updated:', updated);
+		}
+
+		res.send('okay saved');
+	} catch (error) {
+		res.send(error);
+	}
 });
 
-const helloWorld = async () => {
-	await sheets.spreadsheets.values.update({
-		spreadsheetId,
-		range: 'A1',
-		resource: {
-			values: [ [ 'Hello World' ] ]
-		}
-	});
-};
+app.listen(3000, () => {
+	console.log('App listening on port 3000!');
+});

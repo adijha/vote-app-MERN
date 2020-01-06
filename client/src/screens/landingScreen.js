@@ -16,7 +16,6 @@ export default function LandingScreen() {
 	};
 
 	return (
-		// <div className='App'>
 		<header className='App-header'>
 			{/* <form> */}
 			<div className='form-group'>
