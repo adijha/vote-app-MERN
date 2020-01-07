@@ -1,36 +1,39 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const Vote = require('./models/Vote');
 const connectDB = require('./connectDB');
 connectDB();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post('/', async (req, res) => {
 	try {
-		const mila = await Vote.findOne({ image: req.body.image });
+		const mila = await Vote.findOne({ email: req.body.email });
 
 		if (!mila) {
 			const vote = new Vote({
-				image: req.body.image,
-				likes: req.body.like,
-				disLikes: req.body.disLike,
-				comments: req.body.comment
+				email: req.body.email,
+				phone: req.body.phone,
+				likes: req.body.likes,
+				disLikes: req.body.dislikes
 			});
+
+			console.log(req.body);
 
 			vote.save();
 			console.log('!mila');
 		} else {
 			let updated = await Vote.updateOne(
 				{
-					image: req.body.image
+					email: req.body.email
 				},
 				{
 					$set: {
-						likes: req.body.like,
-						disLikes: req.body.disLike,
-						comments: req.body.comment
+						likes: req.body.likes,
+						disLikes: req.body.dislikes
 					}
 				}
 			);

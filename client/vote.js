@@ -9,10 +9,20 @@ let lovedImagesStr = '';
 let nopedImagesStr = '';
 let ell;
 
-// const showGoBtn = () => {
-// 	document.getElementById('wrapperr').style.display = 'block';
-// 	document.getElementById('tinderr').style.display = 'none';
-// };
+const postData = () => {
+	axios
+		.post('http://localhost:3000', {
+			email: getCookie('email'),
+			phone: getCookie('phone'),
+			likes: getCookie('lovedImage'),
+			dislikes: getCookie('nopedImage')
+		})
+		.then((res) => {
+			console.log(res);
+			window.location.href = 'reward.html';
+		})
+		.catch((err) => console.error(err));
+};
 
 const setCookie = (name, value, days = 7, path = '/') => {
 	const expires = new Date(Date.now() + days * 864e5).toUTCString();
@@ -125,7 +135,10 @@ allCards.forEach(function(el) {
 				alltincard[4].className.includes('removed')
 			) {
 				showCookiee();
-				window.location.href = 'reward.html';
+
+				postData();
+
+				// window.location.href = 'reward.html';
 			}
 		}
 	});
@@ -164,7 +177,7 @@ function createButtonListener(love) {
 			alltincardclick[4].className.includes('removed')
 		) {
 			showCookiee();
-			window.location.href = 'reward.html';
+			// window.location.href = 'reward.html';
 		}
 
 		event.preventDefault();
