@@ -9,12 +9,10 @@ let lovedImagesStr = '';
 let nopedImagesStr = '';
 let ell;
 
-const showGoBtn = () => {
-	console.log((document.getElementById('wrapperr').style.display = 'block'));
-	console.log((document.getElementById('tinderr').style.display = 'none'));
-
-	//.display = 'block';
-};
+// const showGoBtn = () => {
+// 	document.getElementById('wrapperr').style.display = 'block';
+// 	document.getElementById('tinderr').style.display = 'none';
+// };
 
 const setCookie = (name, value, days = 7, path = '/') => {
 	const expires = new Date(Date.now() + days * 864e5).toUTCString();
@@ -98,15 +96,6 @@ allCards.forEach(function(el) {
 			event.target.style.transform = '';
 		} else {
 			let alltincard = document.getElementsByClassName('tinder--card');
-			if (
-				alltincard[0].className.includes('removed') &&
-				alltincard[1].className.includes('removed') &&
-				alltincard[2].className.includes('removed') &&
-				alltincard[3].className.includes('removed') &&
-				alltincard[4].className.includes('removed')
-			) {
-				showGoBtn();
-			}
 
 			var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
 			var toX = event.deltaX > 0 ? endX : -endX;
@@ -127,6 +116,17 @@ allCards.forEach(function(el) {
 				console.log('noped and removed----------', ids);
 				nopedImages.push(ids);
 			}
+
+			if (
+				alltincard[0].className.includes('removed') &&
+				alltincard[1].className.includes('removed') &&
+				alltincard[2].className.includes('removed') &&
+				alltincard[3].className.includes('removed') &&
+				alltincard[4].className.includes('removed')
+			) {
+				showCookiee();
+				window.location.href = 'reward.html';
+			}
 		}
 	});
 });
@@ -142,36 +142,45 @@ function createButtonListener(love) {
 
 		card.classList.add('removed');
 
+		let alltincardclick = document.getElementsByClassName('tinder--card');
+
 		if (love) {
-			// console.log(card.id, 'love');
 			lovedImages.push(card.id);
 
-			// setCookie('lovedImages', lovedImages);
 			card.style.transform = 'translate(' + moveOutWidth + 'px, -10px) rotate(-30deg)';
 		} else {
-			// console.log(card.id, 'nope');
 			nopedImages.push(card.id);
-			// setCookie('nopedImages', nopedImages);
 
 			card.style.transform = 'translate(-' + moveOutWidth + 'px, -10px) rotate(30deg)';
 		}
 
 		initCards();
 
+		if (
+			alltincardclick[0].className.includes('removed') &&
+			alltincardclick[1].className.includes('removed') &&
+			alltincardclick[2].className.includes('removed') &&
+			alltincardclick[3].className.includes('removed') &&
+			alltincardclick[4].className.includes('removed')
+		) {
+			showCookiee();
+			window.location.href = 'reward.html';
+		}
+
 		event.preventDefault();
 	};
 }
 
-setCookie('lovedImage', lovedImages.toString());
-setCookie('nopedImage', nopedImages.toString());
+const showCookiee = (params) => {
+	setCookie('lovedImage', lovedImages.toString());
+	setCookie('nopedImage', nopedImages.toString());
 
-var cookieVal = getCookie('lovedImage');
-var cookieVall = getCookie('nopedImage');
-var cookieValll = getCookie('phone');
-var cookieVallll = getCookie('email');
+	var cookieVal = getCookie('lovedImage');
+	var cookieVall = getCookie('nopedImage');
 
-console.log(cookieVal);
-console.log(cookieVall);
+	console.log(cookieVal);
+	console.log(cookieVall);
+};
 
 var nopeListener = createButtonListener(false);
 var loveListener = createButtonListener(true);

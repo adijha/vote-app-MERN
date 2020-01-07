@@ -417,7 +417,35 @@ input[type=text]:placeholder {
 	text-align: center;
 }
 
+/* .buttonn {
+	position: absolute;
+  top: 50%;
+  
+} */
+
 .buttonn {
 	position: absolute;
-	top: 50%;
+	top: 48%;
+	left: 36%;
+	padding: 15px 25px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #4caf50;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 3px #999;
+}
+
+.buttonn:hover {
+	background-color: #3e8e41;
+}
+
+.buttonn:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
 }

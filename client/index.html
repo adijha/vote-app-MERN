@@ -18,28 +18,10 @@
 <body>
 
 
-  <!-- <div>
-    <div className='form-group'>
-      <label>Email address</label>
-      <input type='email' className='form-control' id='email' onChange='inputEmailHandler()'
-        placeholder='Enter email' />
-    </div>
-    <div className='form-group'>
-      <label>Phone</label>
-
-      <input type='text' className='form-control' id='number' onChange='inputPhoneHandler()'
-        placeholder='Enter Phone No.' />
-    </div>
-
-    <button id='buttonA' className='btn btn-primary'>
-      Submit
-    </button>
-
-  </div> -->
-
   <div class="wrapper fadeInDown">
     <div id="formContent">
-      <h2 class="active"> Fill your details to participate </h2>
+      <h2 class="active"> VOTE FOR DESIGN
+        WIN A VOUCHER ON SUBMISSION </h2>
       <br>
       <br>
 
@@ -56,7 +38,7 @@
           placeholder="Phone">
         <br>
         <br>
-        <input type="submit" id='buttonA' class="fadeIn fourth" value="Go to vote">
+        <input type="submit" id='buttonA' class="fadeIn fourth" value="LETS BEGIN">
       </div>
 
 
@@ -86,21 +68,13 @@
         var parts = value.split("; " + name + "=");
         if (parts.length == 2) return parts.pop().split(";").shift();
       };
-
-
       // Example
       var cookieVal = getCookie('phone');
       var cookieVall = getCookie('email');
       console.log(cookieVal)
       console.log(cookieVall)
-
-
       window.location.href = 'votePage.html';
-
     });
-
-
-
   </script>
 </body>
 
