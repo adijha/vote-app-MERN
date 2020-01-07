@@ -413,3 +413,11 @@ input[type=text]:placeholder {
 * {
 	box-sizing: border-box;
 }
+#wrapperr {
+	text-align: center;
+}
+
+.buttonn {
+	position: absolute;
+	top: 50%;
+}

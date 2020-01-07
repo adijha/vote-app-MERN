@@ -1,5 +1,3 @@
-'use strict';
-
 var tinderContainer = document.querySelector('.tinder');
 var allCards = document.querySelectorAll('.tinder--card');
 var nope = document.getElementById('nope');
@@ -7,6 +5,16 @@ var love = document.getElementById('love');
 let lovedImages = [];
 let nopedImages = [];
 let ids;
+let lovedImagesStr = '';
+let nopedImagesStr = '';
+let ell;
+
+const showGoBtn = () => {
+	console.log((document.getElementById('wrapperr').style.display = 'block'));
+	console.log((document.getElementById('tinderr').style.display = 'none'));
+
+	//.display = 'block';
+};
 
 const setCookie = (name, value, days = 7, path = '/') => {
 	const expires = new Date(Date.now() + days * 864e5).toUTCString();
@@ -72,11 +80,10 @@ allCards.forEach(function(el) {
 	hammertime.on('panend', async function(event) {
 		el.classList.remove('moving');
 		const classes = tinderContainer.classList[2];
-		console.log(classes);
+		console.log('classes', classes);
+
 		ids = el.id;
-
-		console.log(ids);
-
+		console.log(ids, 'ids');
 		tinderContainer.classList.remove('tinder_love');
 
 		tinderContainer.classList.remove('tinder_nope');
@@ -90,6 +97,17 @@ allCards.forEach(function(el) {
 		if (keep) {
 			event.target.style.transform = '';
 		} else {
+			let alltincard = document.getElementsByClassName('tinder--card');
+			if (
+				alltincard[0].className.includes('removed') &&
+				alltincard[1].className.includes('removed') &&
+				alltincard[2].className.includes('removed') &&
+				alltincard[3].className.includes('removed') &&
+				alltincard[4].className.includes('removed')
+			) {
+				showGoBtn();
+			}
+
 			var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
 			var toX = event.deltaX > 0 ? endX : -endX;
 			var endY = Math.abs(event.velocityY) * moveOutWidth;
@@ -109,22 +127,6 @@ allCards.forEach(function(el) {
 				console.log('noped and removed----------', ids);
 				nopedImages.push(ids);
 			}
-
-			// lovedImagesStr = lovedImages.toString();
-			// nopedImagesStr = nopedImages.toString();
-
-			// setCookie('lovedImages', lovedImagesStr);
-			// setCookie('nopedImages', nopedImagesStr);
-
-			// var cookieVal = getCookie('lovedImages');
-			// var cookieVall = getCookie('nopedImages');
-			// var cookieValll = getCookie('phone');
-			// var cookieVallll = getCookie('email');
-
-			// console.log('loved Images', cookieVal);
-			// console.log('noped images', cookieVall);
-			// console.log('phone', cookieValll);
-			// console.log('email', cookieVallll);
 		}
 	});
 });
@@ -160,21 +162,16 @@ function createButtonListener(love) {
 	};
 }
 
-// let lovedImagesStr = lovedImages.toString();
-// let nopedImagesStr = nopedImages.toString();
-// try {
-
-// } catch (error) {
-
-// }
-
-setCookie('lovedImage', lovedImages);
-setCookie('nopedImage', nopedImages);
+setCookie('lovedImage', lovedImages.toString());
+setCookie('nopedImage', nopedImages.toString());
 
 var cookieVal = getCookie('lovedImage');
 var cookieVall = getCookie('nopedImage');
 var cookieValll = getCookie('phone');
 var cookieVallll = getCookie('email');
+
+console.log(cookieVal);
+console.log(cookieVall);
 
 var nopeListener = createButtonListener(false);
 var loveListener = createButtonListener(true);
