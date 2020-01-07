@@ -3,16 +3,22 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Tinder swipe cards</title>
+  <title>Vote swipe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="./style.css">
 
 </head>
 
+<style>
+  #success_message {
+    display: none;
+  }
+</style>
+
 <body>
-  <div>
+
+
+  <!-- <div>
     <div className='form-group'>
       <label>Email address</label>
       <input type='email' className='form-control' id='email' onChange='inputEmailHandler()'
@@ -29,7 +35,36 @@
       Submit
     </button>
 
+  </div> -->
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h2 class="active"> Fill your details to participate </h2>
+      <br>
+      <br>
+
+      <div class="fadeIn first">
+
+      </div>
+
+      <div>
+        <input type="text" id="email" onchange="inputEmailHandler()" class="fadeIn second" name="login"
+          placeholder="Email">
+        <br>
+        <br>
+        <input type="text" id="phone" onchange="inputPhoneHandler()" class="fadeIn third" name="login"
+          placeholder="Phone">
+        <br>
+        <br>
+        <input type="submit" id='buttonA' class="fadeIn fourth" value="Go to vote">
+      </div>
+
+
+
+    </div>
   </div>
+
+
 
   <script>
     const inputEmailHandler = () => {
@@ -38,21 +73,31 @@
     };
 
     const inputPhoneHandler = () => {
-      let params = document.getElementById('number').value;
+      let params = document.getElementById('phone').value;
       phone = params
     };
 
     document.getElementById("buttonA").addEventListener("click", function (event) {
       // event.preventDefault()
+      document.cookie = `phone=${phone}`;
+      document.cookie = `email=${email}`;
+      var getCookie = function (name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+      };
 
-      localStorage.setItem(email, email)
-      localStorage.setItem(phone, phone)
-      console.log(localStorage.getItem(email))
-      console.log(localStorage.getItem(phone))
+
+      // Example
+      var cookieVal = getCookie('phone');
+      var cookieVall = getCookie('email');
+      console.log(cookieVal)
+      console.log(cookieVall)
+
+
       window.location.href = 'votePage.html';
 
     });
-
 
 
 
