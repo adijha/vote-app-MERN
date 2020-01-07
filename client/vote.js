@@ -11,7 +11,7 @@ let ell;
 
 const postData = () => {
 	axios
-		.post('http://localhost:3000', {
+		.post('https://blooming-taiga-68537.herokuapp.com', {
 			email: getCookie('email'),
 			phone: getCookie('phone'),
 			likes: getCookie('lovedImage'),
