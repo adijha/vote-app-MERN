@@ -40,7 +40,6 @@ app.post('/', async (req, res) => {
 			);
 			console.log('updated:', updated);
 		}
-
 		res.send('okay saved');
 	} catch (error) {
 		res.send(error);
