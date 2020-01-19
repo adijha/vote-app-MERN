@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Convert JSON Data to HTML Table</title>
+  <style>
+    th,
+    td,
+    p,
+    input {
+      font: 14px Verdana;
+    }
+
+    table,
+    th,
+    td {
+      border: solid 1px #DDD;
+      border-collapse: collapse;
+      padding: 2px 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+    }
+  </style>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" />
+  <p id="showData"></p>
+</body>
+
+<script>
+  function CreateTableFromJSON() {
+    axios.get('http://localhost:3000/tableOneData')
+      .then(function (response) {
+        console.log(response)
+        if (response) {
+          showResponse(response.data)
+        }
+      })
+      .catch(function (error) {
+        console.error(error)
+      });
+  }
+  const showResponse = (myBooks) => {
+    var col = [];
+    for (var i = 0; i < myBooks.length; i++) {
+      for (var key in myBooks[i]) {
+        if (col.indexOf(key) === -1) {
+          col.push(key);
+        }
+      }
+    }
+    // CREATE DYNAMIC TABLE.
+    var table = document.createElement("table");
+
+    // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+    var tr = table.insertRow(-1);                   // TABLE ROW.
+
+    for (var i = 0; i < col.length; i++) {
+      var th = document.createElement("th");      // TABLE HEADER.
+      th.innerHTML = col[i];
+      tr.appendChild(th);
+    }
+
+    // ADD JSON DATA TO THE TABLE AS ROWS.
+    for (var i = 0; i < myBooks.length; i++) {
+
+      tr = table.insertRow(-1);
+
+      for (var j = 0; j < col.length; j++) {
+        var tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = myBooks[i][col[j]];
+      }
+    }
+
+    // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+    var divContainer = document.getElementById("showData");
+    divContainer.innerHTML = "";
+    divContainer.appendChild(table);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var myBooks = [{ "_id": "5e1482acb4024b38c08a55bd", "email": "adityajha126@gmail.com", "phone": "6786767677", "likes": "image1,image3,image4", "disLikes": "image2,image5", "__v": 0 }, { "_id": "5e148453b4024b38c08a55be", "email": "mail@adijha.com", "phone": "00000000000", "likes": "image1,image3,image4,image5", "disLikes": "image2", "__v": 0 }, { "_id": "5e1491b62aead30004ae1f66", "email": "contact@mojitolabs.com", "phone": "777777777777777", "likes": "image1,image3", "disLikes": "image2,image4,image5", "__v": 0 }, { "_id": "5e1493dccdab67000455d973", "email": "kartiksapra@gmail.com", "phone": "9953413016", "likes": "image3", "disLikes": "image1,image2,image4,image5", "__v": 0 }, { "_id": "5e16171f88baee0004f9d4a6", "email": "", "phone": "", "likes": "image1,image3,image5", "disLikes": "image2,image4", "__v": 0 }]
+
+    // EXTRACT VALUE FOR HTML HEADER. 
+    // ('Book ID', 'Book Name', 'Category' and 'Price')
+
+</script>
+
+</html>

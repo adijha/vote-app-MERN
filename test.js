@@ -19,23 +19,25 @@ const name = async () => {
 
 	console.log(allah);
 
-	writ(allah);
+	// writ(allah);
 };
 name();
 
-const ws = fs.createWriteStream('bezkoder_mongodb_fastcsv.csv');
+// const ws = fs.createWriteStream('bezkoder_mongodb_fastcsv.csv');
 
-const writ = async (data) => {
-	try {
-		const json2csvParser = new Json2csvParser({ header: false });
-		const csvData = json2csvParser.parse(data);
+// const writ = async (data) => {
+// 	try {
+// 		const json2csvParser = new Json2csvParser({ header: false });
+// 		const csvData = json2csvParser.parse(data);
 
-		fs.writeFile('bezkoder_mongodb_fs.csv', csvData, function(error) {
-			if (error) throw error;
-			console.log('Write to bezkoder_mongodb_fs.csv successfully!');
-		});
-		console.log('done');
-	} catch (error) {
-		console.error(error);
-	}
-};
+// 		fs.writeFile('bezkoder_mongodb_fs.csv', csvData, function(error) {
+// 			if (error) throw error;
+// 			console.log('Write to bezkoder_mongodb_fs.csv successfully!');
+// 		});
+// 		console.log('done');
+// 	} catch (error) {
+// 		console.error(error);
+// 	}
+// };
+
+//json2csv

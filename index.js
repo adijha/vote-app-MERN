@@ -10,6 +10,34 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/tableOne', async (req, res) => {
+	try {
+		const mila = await Vote.find();
+		res.sendFile(path.resolve(__dirname, 'client', 'tableOne.html'));
+		console.log(mila);
+	} catch (error) {
+		console.error(error);
+	}
+});
+app.get('/tableOneData', async (req, res) => {
+	try {
+		const mila = await Vote.find();
+		res.send(mila);
+		console.log(mila);
+	} catch (error) {
+		console.error(error);
+	}
+});
+app.get('/tableTwoData', async (req, res) => {
+	try {
+		const mila = await Vote.findOne({ likes: 'image1' });
+		res.send(mila);
+		console.log(mila);
+	} catch (error) {
+		console.error(error);
+	}
+});
+
 app.post('/', async (req, res) => {
 	try {
 		const mila = await Vote.findOne({ email: req.body.email });
