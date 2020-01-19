@@ -30,9 +30,79 @@ app.get('/tableOneData', async (req, res) => {
 });
 app.get('/tableTwoData', async (req, res) => {
 	try {
-		const mila = await Vote.findOne({ likes: 'image1' });
-		res.send(mila);
-		console.log(mila);
+		let likesList = [ 0, 0, 0, 0, 0 ];
+		let disLikesList = [ 0, 0, 0, 0, 0 ];
+
+		const mila = await Vote.find();
+		mila.forEach(async (object) => {
+			let likes = object.likes.toString();
+			let disLikes = object.disLikes.toString();
+
+			if (likes.includes('image1')) {
+				likesList[0]++;
+			}
+			if (likes.includes('image2')) {
+				likesList[1]++;
+			}
+			if (likes.includes('image3')) {
+				likesList[2]++;
+			}
+			if (likes.includes('image4')) {
+				likesList[3]++;
+			}
+			if (likes.includes('image5')) {
+				likesList[4]++;
+			}
+			if (disLikes.includes('image1')) {
+				disLikesList[0]++;
+			}
+			if (disLikes.includes('image2')) {
+				disLikesList[1]++;
+			}
+			if (disLikes.includes('image3')) {
+				disLikesList[2]++;
+			}
+			if (disLikes.includes('image4')) {
+				disLikesList[3]++;
+			}
+			if (disLikes.includes('image5')) {
+				disLikesList[4]++;
+			}
+		});
+
+		console.log('total liked', likesList);
+		console.log('total liked', disLikesList);
+
+		let sendObj = [
+			{
+				image: 'image1',
+				likes: likesList[0],
+				dislikes: disLikesList[0]
+			},
+			{
+				image: 'image2',
+				likes: likesList[1],
+				dislikes: disLikesList[1]
+			},
+			{
+				image: 'image3',
+				likes: likesList[2],
+				dislikes: disLikesList[2]
+			},
+			{
+				image: 'image4',
+				likes: likesList[3],
+				dislikes: disLikesList[3]
+			},
+			{
+				image: 'image5',
+				likes: likesList[4],
+				dislikes: disLikesList[4]
+			}
+		];
+
+		res.send(sendObj);
+		// console.log(mila);
 	} catch (error) {
 		console.error(error);
 	}
