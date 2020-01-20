@@ -45,7 +45,7 @@
 
 <script>
   function CreateTableFromJSON() {
-    axios.get('http://blooming-taiga-68537.herokuapp.com/tableOneData')
+    axios.get('https://blooming-taiga-68537.herokuapp.com/tableOneData')
       .then(function (response) {
         console.log(response)
         if (response) {
@@ -57,7 +57,7 @@
       });
   }
   function CreateSecondTableFromJSON() {
-    axios.get('http://blooming-taiga-68537.herokuapp.com/tableTwoData')
+    axios.get('https://blooming-taiga-68537.herokuapp.com/tableTwoData')
       .then(function (response) {
         console.log(response)
         if (response) {
