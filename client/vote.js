@@ -9,7 +9,7 @@ let lovedImagesStr = '';
 let nopedImagesStr = '';
 let ell;
 
-const postData = async() => {
+const postData = async () => {
 	console.log(getCookie('email'));
 	console.log(getCookie('phone'));
 	console.log(getCookie('lovedImage'));
@@ -17,24 +17,25 @@ const postData = async() => {
 
 	try {
 		await axios
-		.post('https://blooming-taiga-68537.herokuapp.com', {
-			email: getCookie('email'),
-			phone: getCookie('phone'),
-			likes: getCookie('lovedImage'),
-			dislikes: getCookie('nopedImage')
-		})
-		.then((res) => {
-			console.log(res);
-			// window.location.href = 'reward.html';
-		})
+			.post('https://blooming-taiga-68537.herokuapp.com', {
+				email: getCookie('email'),
+				phone: getCookie('phone'),
+				likes: getCookie('lovedImage'),
+				dislikes: getCookie('nopedImage')
+			})
+			.then((res) => {
+				console.log(res);
+				// window.location.href = 'reward.html';
+			});
 	} catch (error) {
-		console.error(error)
+		console.error(error);
 	}
 };
 
 const setCookie = (name, value, days = 7, path = '/') => {
 	const expires = new Date(Date.now() + days * 864e5).toUTCString();
 	document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=' + path;
+	console.log('cookie set ', name);
 };
 
 const getCookie = (name) => {
@@ -95,8 +96,8 @@ allCards.forEach(function(el) {
 
 	hammertime.on('panend', async function(event) {
 		el.classList.remove('moving');
-		const classes = tinderContainer.classList[2];
-		console.log('classes', classes);
+		const classes = tinderContainer.classList[3];
+		console.log('classes ::', classes);
 
 		ids = el.id;
 		console.log(ids, 'ids');
@@ -114,13 +115,14 @@ allCards.forEach(function(el) {
 			event.target.style.transform = '';
 		} else {
 			let alltincard = document.getElementsByClassName('tinder--card');
+			console.log(alltincard);
 
 			var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
 			var toX = event.deltaX > 0 ? endX : -endX;
 			var endY = Math.abs(event.velocityY) * moveOutWidth;
 			var toY = event.deltaY > 0 ? endY : -endY;
 			var xMulti = event.deltaX * 0.03;
-			var yMulti = event.deltaY / 80;
+			var yMulti = event.deltaY / 8;
 			var rotate = xMulti * yMulti;
 			event.target.style.transform =
 				'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
@@ -143,7 +145,7 @@ allCards.forEach(function(el) {
 				alltincard[4].className.includes('removed')
 			) {
 				showCookiee();
-
+				console.log('object', showCookiee());
 				postData();
 
 				// window.location.href = 'reward.html';
