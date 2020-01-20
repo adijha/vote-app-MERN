@@ -101,6 +101,16 @@ body {
 	pointer-events: none;
 }
 
+.tinder--buttons button {
+	border-radius: 50%;
+	line-height: 40px;
+	width: 40px;
+	border: 0;
+	background: #ffffff;
+	display: inline-block;
+	margin: 0 8px;
+}
+
 .tinder--buttons {
 	text-align: center;
 }
@@ -450,7 +460,7 @@ input[type=text]:placeholder {
 
 /*Newly Added in votePage*/
 .tinder--buttons{
-	margin: 5rem 8rem;
+	/* margin: 5rem 8rem; */
     width: 40%;
     z-index: 4;
     background: #ccfbfe;
@@ -483,4 +493,12 @@ text-align: center;
     width: 70%;
     margin: auto;
 		padding: 10px;
+}
+
+.tinder--buttons{
+	width: auto;
+	z-index: 1;
+    margin: 5.5rem auto;
+    top: auto;
+    background-color: #ccfbfe;
 }
