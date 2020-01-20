@@ -17,7 +17,7 @@ const postData = async () => {
 
 	try {
 		await axios
-			.post('https://blooming-taiga-68537.herokuapp.com', {
+			.post('https://vote-app-amydus.herokuapp.com', {
 				email: getCookie('email'),
 				phone: getCookie('phone'),
 				likes: getCookie('lovedImage'),
