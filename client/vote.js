@@ -115,7 +115,7 @@ allCards.forEach(function(el) {
 			event.target.style.transform = '';
 		} else {
 			let alltincard = document.getElementsByClassName('tinder--card');
-			console.log(alltincard);
+			// console.log(alltincard);
 
 			var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
 			var toX = event.deltaX > 0 ? endX : -endX;
@@ -187,7 +187,7 @@ function createButtonListener(love) {
 			alltincardclick[4].className.includes('removed')
 		) {
 			showCookiee();
-			// window.location.href = 'reward.html';
+			window.location.href = 'reward.html';
 		}
 
 		event.preventDefault();
