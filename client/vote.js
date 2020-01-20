@@ -25,7 +25,7 @@ const postData = async () => {
 			})
 			.then((res) => {
 				console.log(res);
-				// window.location.href = 'reward.html';
+				window.location.href = 'reward.html';
 			});
 	} catch (error) {
 		console.error(error);
