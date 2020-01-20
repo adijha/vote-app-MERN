@@ -19,7 +19,7 @@ const postData = () => {
 		})
 		.then((res) => {
 			console.log(res);
-			window.location.href = 'reward.html';
+			// window.location.href = 'reward.html';
 		})
 		.catch((err) => console.error(err));
 };
