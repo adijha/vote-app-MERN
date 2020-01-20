@@ -9,8 +9,14 @@ let lovedImagesStr = '';
 let nopedImagesStr = '';
 let ell;
 
-const postData = () => {
-	axios
+const postData = async() => {
+	console.log(getCookie('email'));
+	console.log(getCookie('phone'));
+	console.log(getCookie('lovedImage'));
+	console.log(getCookie('nopedImage'));
+
+	try {
+		await axios
 		.post('https://blooming-taiga-68537.herokuapp.com', {
 			email: getCookie('email'),
 			phone: getCookie('phone'),
@@ -21,7 +27,9 @@ const postData = () => {
 			console.log(res);
 			// window.location.href = 'reward.html';
 		})
-		.catch((err) => console.error(err));
+	} catch (error) {
+		console.error(error)
+	}
 };
 
 const setCookie = (name, value, days = 7, path = '/') => {
