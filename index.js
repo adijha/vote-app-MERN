@@ -10,11 +10,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/tableOne', async (req, res) => {
+app.get('/result', async (req, res) => {
 	try {
 		const mila = await Vote.find({});
-
-		// delete mila._id;
 		res.sendFile(path.resolve(__dirname, 'client', 'result.html'));
 		console.log(mila);
 	} catch (error) {
