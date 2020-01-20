@@ -12,7 +12,9 @@ app.use(cors());
 
 app.get('/tableOne', async (req, res) => {
 	try {
-		const mila = await Vote.find();
+		const mila = await Vote.find({});
+
+		// delete mila._id;
 		res.sendFile(path.resolve(__dirname, 'client', 'tableOne.html'));
 		console.log(mila);
 	} catch (error) {
@@ -22,8 +24,17 @@ app.get('/tableOne', async (req, res) => {
 app.get('/tableOneData', async (req, res) => {
 	try {
 		const mila = await Vote.find();
-		res.send(mila);
-		console.log(mila);
+		let milaa = [];
+		mila.forEach((e) => {
+			let tempObj = {};
+			tempObj.email = e.email;
+			tempObj.phone = e.phone;
+			tempObj.likes = e.likes;
+			tempObj.disLikes = e.disLikes;
+			milaa.push(tempObj);
+		});
+
+		res.send(milaa);
 	} catch (error) {
 		console.error(error);
 	}
