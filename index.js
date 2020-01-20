@@ -15,7 +15,7 @@ app.get('/tableOne', async (req, res) => {
 		const mila = await Vote.find({});
 
 		// delete mila._id;
-		res.sendFile(path.resolve(__dirname, 'client', 'tableOne.html'));
+		res.sendFile(path.resolve(__dirname, 'client', 'result.html'));
 		console.log(mila);
 	} catch (error) {
 		console.error(error);
