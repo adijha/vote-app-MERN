@@ -86,27 +86,32 @@ app.get('/tableTwoData', async (req, res) => {
 			{
 				image: 'image1',
 				likes: likesList[0],
-				dislikes: disLikesList[0]
+				dislikes: likesList[0],
+				views: likesList[0] + likesList[0]
 			},
 			{
 				image: 'image2',
 				likes: likesList[1],
-				dislikes: disLikesList[1]
+				dislikes: disLikesList[1],
+				views: likesList[1] + likesList[1]
 			},
 			{
 				image: 'image3',
 				likes: likesList[2],
-				dislikes: disLikesList[2]
+				dislikes: disLikesList[2],
+				views: likesList[2] + likesList[2]
 			},
 			{
 				image: 'image4',
 				likes: likesList[3],
-				dislikes: disLikesList[3]
+				dislikes: disLikesList[3],
+				views: likesList[3] + likesList[3]
 			},
 			{
 				image: 'image5',
 				likes: likesList[4],
-				dislikes: disLikesList[4]
+				dislikes: disLikesList[4],
+				views: likesList[4] + likesList[4]
 			}
 		];
 
