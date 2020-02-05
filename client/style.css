@@ -6,13 +6,13 @@
 	margin: 0;
 }
 
-body {
+.vote-container {
 	background: #ccfbfe;
 	overflow: hidden;
 	font-family: sans-serif;
 }
 
-.tinder {
+.vote-container .tinder {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
@@ -23,11 +23,11 @@ body {
 	transition: opacity 0.1s ease-in-out;
 }
 
-.loaded.tinder {
+.vote-container .loaded.tinder {
 	opacity: 1;
 }
 
-.tinder--status {
+.vote-container .tinder--status {
 	position: absolute;
 	top: 50%;
 	margin-top: -30px;
@@ -37,7 +37,7 @@ body {
 	pointer-events: none;
 }
 
-.tinder--status i {
+.vote-container .tinder--status i {
 	font-size: 100px;
 	opacity: 0;
 	-webkit-transform: scale(0.3);
@@ -48,19 +48,19 @@ body {
 	margin-left: -50px;
 }
 
-.tinder_love .fa-heart {
+.vote-container .tinder_love .fa-heart {
 	opacity: 0.7;
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
 
-.tinder_nope .fa-remove {
+.vote-container .tinder_nope .fa-remove {
 	opacity: 0.7;
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
 
-.tinder--cards {
+.vote-container .tinder--cards {
 	flex-grow: 1;
 	padding-top: 40px;
 	text-align: center;
@@ -70,7 +70,7 @@ body {
 	z-index: 1;
 }
 
-.tinder--card {
+.vote-container .tinder--card {
 	display: inline-block;
 	width: 80vw;
 	height: 80vh;
@@ -86,13 +86,13 @@ body {
 	cursor: grab;
 }
 
-.moving.tinder--card {
+.vote-container .moving.tinder--card {
 	transition: none;
 	cursor: -webkit-grabbing;
 	cursor: grabbing;
 }
 
-.tinder--card img {
+.vote-container .tinder--card img {
 	vertical-align: middle;
 	width: 100%;
 	height: 100%;
@@ -101,7 +101,7 @@ body {
 	pointer-events: none;
 }
 
-.tinder--buttons button {
+.vote-container .tinder--buttons button {
 	border-radius: 50%;
 	line-height: 40px;
 	width: 40px;
@@ -111,11 +111,11 @@ body {
 	margin: 0 8px;
 }
 
-.tinder--buttons {
+.vote-container .tinder--buttons {
 	text-align: center;
 }
 
-.tinder--buttons button {
+.vote-container .tinder--buttons button {
 	border-radius: 50%;
 	line-height: 40px;
 	width: 40px;
@@ -125,39 +125,39 @@ body {
 	margin: 0 8px;
 }
 
-.tinder--buttons button:focus {
+.vote-container .tinder--buttons button:focus {
 	outline: 0;
 }
 
-.tinder--buttons i {
+.vote-container .tinder--buttons i {
 	font-size: 30px;
 	vertical-align: middle;
 }
 
-.fa-heart {
+.vote-container .fa-heart {
 	color: #fface4;
 }
 
-.fa-remove {
+.vote-container .fa-remove {
 	color: #cdd6dd;
 }
 
-html {
+.vote-container {
 	background-color: #56baed;
 }
 
-body {
+.vote-container{
 	height: 100vh;
 }
 
-a {
+.vote-container a {
 	color: #92badd;
 	display: inline-block;
 	text-decoration: none;
 	font-weight: 400;
 }
 
-h2 {
+.vote-container h2 {
 	text-align: center;
 	font-size: 16px;
 	font-weight: 600;
@@ -169,7 +169,7 @@ h2 {
 
 /* STRUCTURE */
 
-.wrapper {
+.vote-container .wrapper {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -179,7 +179,7 @@ h2 {
 	padding: 20px;
 }
 
-#formContent, #rewardContent {
+.vote-container #formContent, #rewardContent {
 	-webkit-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
 	background: #fff;
@@ -193,7 +193,7 @@ h2 {
 	text-align: center;
 }
 
-#formFooter {
+.vote-container #formFooter {
 	background-color: #f6f6f6;
 	border-top: 1px solid #dce8f1;
 	padding: 25px;
@@ -204,20 +204,20 @@ h2 {
 
 /* TABS */
 
-h2.inactive {
+.vote-container h2.inactive {
 	color: #cccccc;
 }
 
-h2.active {
+.vote-container h2.active {
 	color: #0d0d0d;
 	border-bottom: 2px solid #5fbae9;
 }
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button],
-input[type=submit],
-input[type=reset] {
+.vote-container input[type=button],
+.vote-container input[type=submit],
+.vote-container input[type=reset] {
 	background-color: #56baed;
 	border: none;
 	color: white;
@@ -239,15 +239,15 @@ input[type=reset] {
 	transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover,
-input[type=submit]:hover,
-input[type=reset]:hover {
+.vote-container input[type=button]:hover,
+.vote-container input[type=submit]:hover,
+.vote-container input[type=reset]:hover {
 	background-color: #39ace7;
 }
 
-input[type=button]:active,
-input[type=submit]:active,
-input[type=reset]:active {
+.vote-container input[type=button]:active,
+.vote-container input[type=submit]:active,
+.vote-container input[type=reset]:active {
 	-moz-transform: scale(0.95);
 	-webkit-transform: scale(0.95);
 	-o-transform: scale(0.95);
@@ -255,7 +255,7 @@ input[type=reset]:active {
 	transform: scale(0.95);
 }
 
-input[type=text] {
+.vote-container input[type=text] {
 	background-color: #f6f6f6;
 	border: none;
 	color: #0d0d0d;
@@ -276,19 +276,19 @@ input[type=text] {
 	border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+.vote-container input[type=text]:focus {
 	background-color: #fff;
 	border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+.vote-container input[type=text]:placeholder {
 	color: #cccccc;
 }
 
 /* ANIMATIONS */
 
 /* Simple CSS3 Fade-in-down Animation */
-.fadeInDown {
+.vote-container .fadeInDown {
 	-webkit-animation-name: fadeInDown;
 	animation-name: fadeInDown;
 	-webkit-animation-duration: 1s;
@@ -349,7 +349,7 @@ input[type=text]:placeholder {
 	}
 }
 
-.fadeIn {
+.vote-container .fadeIn {
 	opacity: 0;
 	-webkit-animation: fadeIn ease-in 1;
 	-moz-animation: fadeIn ease-in 1;
@@ -364,32 +364,32 @@ input[type=text]:placeholder {
 	animation-duration: 1s;
 }
 
-.fadeIn.first {
+.vote-container .fadeIn.first {
 	-webkit-animation-delay: 0.4s;
 	-moz-animation-delay: 0.4s;
 	animation-delay: 0.4s;
 }
 
-.fadeIn.second {
+.vote-container .fadeIn.second {
 	-webkit-animation-delay: 0.6s;
 	-moz-animation-delay: 0.6s;
 	animation-delay: 0.6s;
 }
 
-.fadeIn.third {
+.vote-container .fadeIn.third {
 	-webkit-animation-delay: 0.8s;
 	-moz-animation-delay: 0.8s;
 	animation-delay: 0.8s;
 }
 
-.fadeIn.fourth {
+.vote-container .fadeIn.fourth {
 	-webkit-animation-delay: 1s;
 	-moz-animation-delay: 1s;
 	animation-delay: 1s;
 }
 
 /* Simple CSS3 Fade-in Animation */
-.underlineHover:after {
+.vote-container .underlineHover:after {
 	display: block;
 	left: 0;
 	bottom: -10px;
@@ -400,28 +400,28 @@ input[type=text]:placeholder {
 	transition: width 0.2s;
 }
 
-.underlineHover:hover {
+.vote-container .underlineHover:hover {
 	color: #0d0d0d;
 }
 
-.underlineHover:hover:after {
+.vote-container .underlineHover:hover:after {
 	width: 100%;
 }
 
 /* OTHERS */
-
+/* 
 *:focus {
 	outline: none;
-}
+} */
 
-#icon {
+.vote-container #icon {
 	width: 60%;
 }
 
-* {
+/* .vote-container * {
 	box-sizing: border-box;
-}
-#wrapperr {
+} */
+.vote-container #wrapperr {
 	text-align: center;
 }
 
@@ -431,7 +431,7 @@ input[type=text]:placeholder {
 
 } */
 
-.buttonn {
+.vote-container .buttonn {
 	position: absolute;
 	top: 48%;
 	left: 36%;
@@ -448,18 +448,18 @@ input[type=text]:placeholder {
 	box-shadow: 0 3px #999;
 }
 
-.buttonn:hover {
+.vote-container .buttonn:hover {
 	background-color: #3e8e41;
 }
 
-.buttonn:active {
+.vote-container .buttonn:active {
 	background-color: #3e8e41;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
 }
 
 /*Newly Added in votePage*/
-.tinder--buttons{
+.vote-container .tinder--buttons{
 	/* margin: 5rem 8rem; */
     width: 40%;
     z-index: 4;
@@ -470,25 +470,25 @@ input[type=text]:placeholder {
 }
 
 /*Newly added in index.html*/
-.instructions{
+.vote-container .instructions{
 	width: 90%;
     max-width: 450px;
 }
-.instructions h3 {
+.vote-container .instructions h3 {
 text-align: center;
 }
 
-.instructions h4{
+.vote-container .instructions h4{
 	font-weight: 200;
 	text-align: left;
 }
 
 /*reward content*/
-.rewards h4, h3 {
+.vote-container .rewards h4, h3 {
 	font-weight: 200;
 }
 
-.vocher{
+.vote-container .vocher{
 	border: 3px dotted;
     width: 70%;
     margin: auto;
@@ -496,7 +496,7 @@ text-align: center;
 }
 
 
-.tinder--buttons{
+.vote-container .tinder--buttons{
 	width: auto;
 	z-index: 1;
     margin:1.2rem auto;
@@ -504,12 +504,12 @@ text-align: center;
     background-color: #ccfbfe;
 }
 
-.session{
+.vote-container .session{
 	position: relative;
 margin: auto;
 padding: 16px 40px;
 }
-.session button{
+.vote-container .session button{
 	padding: 14px 40px;
 	background-color: white;
 	margin: auto;

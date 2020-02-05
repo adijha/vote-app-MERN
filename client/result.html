@@ -4,46 +4,65 @@
 <head>
   <title>VOTE APP DATA</title>
   <style>
-    body {
-      background-color: #CCFBFE;
+    .vote-container {
+      /* background-color: #CCFBFE; */
+      height: 100vh;
+
     }
 
-    th,
-    td,
-    p,
-    input {
+    .vote-container th,
+    .vote-container td,
+    .vote-container p,
+    .vote-container input {
       font: 14px Verdana;
     }
 
-    table,
-    th,
-    td {
+    .vote-container table {
+      width: 100%;
+    }
+
+    .vote-container table,
+    .vote-container th,
+    .vote-container td {
       border: solid 1px #0ffBFE;
       border-collapse: collapse;
       padding: 2px 3px;
       text-align: center;
     }
 
-    th {
+    .vote-container tr {
+      height: 2rem !important;
+    }
+
+    .vote-container tr:nth-child(odd) {
+      background-color: rgb(229, 255, 255);
+    }
+
+    .vote-container th {
       font-weight: bold;
+      background-color: rgb(5, 160, 177);
+      color: #fff;
     }
   </style>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
-<body onLoad='CreateTableFromJSON(),CreateSecondTableFromJSON()'>
+<div class="vote-container">
   <div>
-    <h2>Table 1 </h2>
+    <h2 style="text-transform:uppercase;">Customer Data</h2>
     <p id="showData"></p>
   </div>
   <div>
-    <h2>Table 2 </h2>
+    <h2 style="text-transform:uppercase;">Image Data</h2>
     <p id="showData2"></p>
   </div>
 
-</body>
+</div>
 
 <script>
+  setTimeout(function () {
+    CreateTableFromJSON(), CreateSecondTableFromJSON()
+  }, 1);
   function CreateTableFromJSON() {
     axios.get('https://vote-app-amydus.herokuapp.com/tableOneData')
       .then(function (response) {
