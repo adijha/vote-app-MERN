@@ -39,8 +39,8 @@ app.get('/tableOneData', async (req, res) => {
 });
 app.get('/tableTwoData', async (req, res) => {
 	try {
-		let likesList = [ 0, 0, 0, 0, 0 ];
-		let disLikesList = [ 0, 0, 0, 0, 0 ];
+		let likesList = [0, 0, 0, 0, 0];
+		let disLikesList = [0, 0, 0, 0, 0];
 
 		const mila = await Vote.find();
 		mila.forEach(async (object) => {
@@ -123,6 +123,7 @@ app.get('/tableTwoData', async (req, res) => {
 });
 
 app.post('/', async (req, res) => {
+	console.log('post aaya')
 	try {
 		const mila = await Vote.findOne({ email: req.body.email });
 
