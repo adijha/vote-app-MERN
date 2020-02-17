@@ -8,6 +8,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./style.css">
   <title>Reward </title>
+  <script>
+    const getCookie = (name) => {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+      }, '');
+    };
+
+
+    function WordCount(str) {
+      return str.split(",").length;
+    }
+
+  </script>
 </head>
 
 <div class="vote-container">
@@ -17,8 +31,12 @@
       <br>
       <h3><b>Congratulations</b> <br> Submission summary </h3>
       <br>
-      <h4>Upvotes 9</h4>
-      <h4>Downvotes 1</h4>
+      <h4>Upvotes
+        <script type="text/javascript">document.write(WordCount(getCookie('lovedImage'))) </script>
+      </h4>
+      <h4>Downvotes
+        <script type="text/javascript"> document.write(WordCount(getCookie('nopedImage'))) </script>
+      </h4>
       <br>
 
       <h4>We love the effort by you <br>Here is your voucher code </h4>
@@ -30,8 +48,7 @@
     </div>
   </div>
 
-  <script src="./vote.js"></script>
-
+  <!-- <script src="./vote.js"></script> -->
 </div>
 
 
